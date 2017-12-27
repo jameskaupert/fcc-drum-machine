@@ -2,7 +2,11 @@ import React from "react";
 
 const DrumPad = props => (
   <div id="drum-pad-container">
-    <button className="drum-pad" onKeyPress={props.handleKeyPress}>
+    <button
+      className="drum-pad"
+      onKeyPress={props.handleKeyPress}
+      onClick={props.handleClick}
+    >
       Q
       <audio id="Q" src="" className="clip" />
     </button>

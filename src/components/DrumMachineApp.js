@@ -7,6 +7,12 @@ export default class DrumMachineApp extends React.Component {
     document.addEventListener("keydown", this.handleKeyPress);
   }
   handleKeyPress = e => {
+    this.playAudio(e);
+  };
+  handleClick = e => {
+    console.log('pressed a button')
+  }
+  playAudio = (e) => {
     switch (e.key) {
       case "q":
         console.log(`q key pressed`);
@@ -36,12 +42,12 @@ export default class DrumMachineApp extends React.Component {
         console.log("c key pressed");
         break;
     }
-  };
+  }
   render() {
     return (
       <div id="drum-machine" className="drum-machine-app">
         <Display />
-        <DrumPad handleKeyPress={this.handleKeyPress} />
+        <DrumPad handleKeyPress={this.handleKeyPress} handleClick={this.handleClick} />
       </div>
     );
   }
