@@ -1,11 +1,48 @@
-import React from 'react';
+import React from "react";
+import Display from "../components/Display";
+import DrumPad from "../components/DrumPad";
 
 export default class DrumMachineApp extends React.Component {
-    render() {
-        return (
-            <div className="drum-machine-app">
-            <h1>Hello Drum Machine</h1>
-            </div>
-        )
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  handleKeyPress = e => {
+    switch (e.key) {
+      case "q":
+        console.log(`q key pressed`);
+        break;
+      case "w":
+        console.log("w key pressed");
+        break;
+      case "e":
+        console.log("e key pressed");
+        break;
+      case "a":
+        console.log("a key pressed");
+        break;
+      case "s":
+        console.log("s key pressed");
+        break;
+      case "d":
+        console.log("d key pressed");
+        break;
+      case "z":
+        console.log("z key pressed");
+        break;
+      case "x":
+        console.log("x key pressed");
+        break;
+      case "c":
+        console.log("c key pressed");
+        break;
     }
+  };
+  render() {
+    return (
+      <div id="drum-machine" className="drum-machine-app">
+        <Display />
+        <DrumPad handleKeyPress={this.handleKeyPress} />
+      </div>
+    );
+  }
 }
