@@ -1,2 +1,23 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    background: $background;
+    color: $text-on-dark;
+    font-family: 'Alegreya Sans', sans-serif;
+}
 
+button {
+    background: $button-light;
+    color: $text-on-light;
+    border: 1px solid $button-dark;
+    outline: 0;
+    font-size: 2.4rem;
+}
 
+button:hover {
+    background: $button-dark;
+    color: $text-on-dark;
+    border: 0;
+    outline: 0;
+}
