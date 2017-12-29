@@ -1,55 +1,116 @@
 import React from "react";
 
 class DrumPad extends React.Component {
-  handleKeyPress = (props) => {
-    console.log('local')
-    this.props.handleKeyPress
-  }
-  handleClick = (props) => {
-    this.props.handleClick
-  }
   render() {
     return (
       <div id="drum-pad-container" className="drum-pad-container">
         <button
+          id={this.props.audioMessages["Q"]}
           className="drum-pad"
-          onKeyPress={this.handleKeyPress}
-          onClick={this.handleClick}
+          onClick={this.props.handleClick}
         >
           Q
-          <audio id="Q" src={`../sounds/${this.props.audioMessages['Q']}.wav`} className="clip" />
+          <audio
+            id="Q"
+            src={`../sounds/${this.props.audioMessages["Q"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["W"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           W
-          <audio id="W" src={`../sounds/${this.props.audioMessages['W']}.wav`} className="clip" />
+          <audio
+            id="W"
+            src={`../sounds/${this.props.audioMessages["W"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["E"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           E
-          <audio id="E" src={`../sounds/${this.props.audioMessages['E']}.wav`} className="clip" />
+          <audio
+            id="E"
+            src={`../sounds/${this.props.audioMessages["E"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["A"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           A
-          <audio id="A" src={`../sounds/${this.props.audioMessages['A']}.wav`} className="clip" />
+          <audio
+            id="A"
+            src={`../sounds/${this.props.audioMessages["A"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["S"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           S
-          <audio id="S" src={`../sounds/${this.props.audioMessages['S']}.wav`} className="clip" />
+          <audio
+            id="S"
+            src={`../sounds/${this.props.audioMessages["S"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["D"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           D
-          <audio id="D" src={`../sounds/${this.props.audioMessages['D']}.wav`} className="clip" />
+          <audio
+            id="D"
+            src={`../sounds/${this.props.audioMessages["D"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["Z"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           Z
-          <audio id="Z" src={`../sounds/${this.props.audioMessages['Z']}.wav`} className="clip" />
+          <audio
+            id="Z"
+            src={`../sounds/${this.props.audioMessages["Z"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["X"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           X
-          <audio id="X" src={`../sounds/${this.props.audioMessages['X']}.wav`} className="clip" />
+          <audio
+            id="X"
+            src={`../sounds/${this.props.audioMessages["X"]}.wav`}
+            className="clip"
+          />
         </button>
-        <button className="drum-pad">
+        <button
+          id={this.props.audioMessages["C"]}
+          className="drum-pad"
+          onClick={this.props.handleClick}
+        >
           C
-          <audio id="C" src={`../sounds/${this.props.audioMessages['C']}.wav`} className="clip" />
+          <audio
+            id="C"
+            src={`../sounds/${this.props.audioMessages["C"]}.wav`}
+            className="clip"
+          />
         </button>
       </div>
     );

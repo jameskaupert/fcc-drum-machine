@@ -23,25 +23,38 @@ export default class DrumMachineApp extends React.Component {
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyPress);
   }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
   handleKeyPress = e => {
-    const key = `${e.key.toUpperCase()}`;
-    this.playAudio(key);
-    this.setState(() => ({ message: this.state.audioMessages[key] }));
+    const key = this.handleKeyCode(e)
+    if (this.state.audioMessages.hasOwnProperty(key)) {
+      this.playAudio(key);
+      this.setState(() => ({ message: this.state.audioMessages[key] }));
+    }
   };
   handleClick = e => {
-    console.log("pressed a button");
+    const key = e.target.innerText
+    this.playAudio(key);
+    this.setState(() => ({ message: this.state.audioMessages[key] }));
   };
   playAudio(key) {
     const audio = document.getElementById(key);
     audio.currentTime = 0;
     audio.play();
   }
+  handleKeyCode = (e)  => {
+    if (e.keyCode) {
+      return String.fromCharCode(e.keyCode).toUpperCase()
+    } else {
+      return e.key.toUpperCase()
+    }
+  }
   render() {
     return (
       <div id="drum-machine" className="drum-machine-app">
         <Display message={this.state.message} />
         <DrumPad
-          handleKeyPress={this.handleKeyPress}
           handleClick={this.handleClick}
           audioMessages={this.state.audioMessages}
         />
