@@ -2,56 +2,48 @@ import React from "react";
 import Display from "../components/Display";
 import DrumPad from "../components/DrumPad";
 
-export default class DrumMachineApp extends React.Component {
 
-  getPressedKey = (e, mykey) => {
-    // console.log('key', mykey);
+
+export default class DrumMachineApp extends React.Component {
+  state = {
+    message: "Press a key to make some sounds",
+    audioMessages: {
+      Q: "CleanHat",
+      W: "ClassicHat",
+      E: "StreetHat",
+      A: "GeePerc",
+      S: "GreenPerc",
+      D: "ZodiacPerc",
+      Z: "AverageKick",
+      X: "GoldenKick",
+      C: "RemingtonKick"
+    }
   };
+  ;
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
   handleKeyPress = e => {
-    // this.playAudio(e);
+    const key = `${e.key.toUpperCase()}`;
+    this.playAudio(key);
+    this.setState(() => ({ message: this.state.audioMessages[key] }));
   };
   handleClick = e => {
     console.log("pressed a button");
   };
-  playAudio = e => {
-    switch (e.key) {
-      case "q":
-        console.log(`q key pressed`);
-        break;
-      case "w":
-        console.log("w key pressed");
-        break;
-      case "e":
-        console.log("e key pressed");
-        break;
-      case "a":
-        console.log("a key pressed");
-        break;
-      case "s":
-        console.log("s key pressed");
-        break;
-      case "d":
-        console.log("d key pressed");
-        break;
-      case "z":
-        console.log("z key pressed");
-        break;
-      case "x":
-        console.log("x key pressed");
-        break;
-      case "c":
-        console.log("c key pressed");
-        break;
-    }
-  };
+  playAudio(key) {
+    const audio = document.getElementById(key);
+    audio.currentTime = 0;
+    audio.play();
+  }
   render() {
     return (
       <div id="drum-machine" className="drum-machine-app">
-        <Display />
+        <Display message={this.state.message} />
         <DrumPad
           handleKeyPress={this.handleKeyPress}
           handleClick={this.handleClick}
-          getPressedKey={this.getPressedKey}
+          audioMessages={this.state.audioMessages}
         />
       </div>
     );
