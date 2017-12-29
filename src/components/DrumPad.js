@@ -13,7 +13,7 @@ class DrumPad extends React.Component {
   };
   render() {
     return (
-      <div id="drum-pad-container">
+      <div id="drum-pad-container" className="drum-pad-container">
         <button
           className="drum-pad"
           onKeyPress={this.handlePress}
