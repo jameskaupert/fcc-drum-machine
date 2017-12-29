@@ -3,16 +3,17 @@ import Display from "../components/Display";
 import DrumPad from "../components/DrumPad";
 
 export default class DrumMachineApp extends React.Component {
-  componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyPress);
-  }
+
+  getPressedKey = (e, mykey) => {
+    // console.log('key', mykey);
+  };
   handleKeyPress = e => {
-    this.playAudio(e);
+    // this.playAudio(e);
   };
   handleClick = e => {
-    console.log('pressed a button')
-  }
-  playAudio = (e) => {
+    console.log("pressed a button");
+  };
+  playAudio = e => {
     switch (e.key) {
       case "q":
         console.log(`q key pressed`);
@@ -42,12 +43,16 @@ export default class DrumMachineApp extends React.Component {
         console.log("c key pressed");
         break;
     }
-  }
+  };
   render() {
     return (
       <div id="drum-machine" className="drum-machine-app">
         <Display />
-        <DrumPad handleKeyPress={this.handleKeyPress} handleClick={this.handleClick} />
+        <DrumPad
+          handleKeyPress={this.handleKeyPress}
+          handleClick={this.handleClick}
+          getPressedKey={this.getPressedKey}
+        />
       </div>
     );
   }
